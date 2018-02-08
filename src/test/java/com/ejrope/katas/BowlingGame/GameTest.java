@@ -44,7 +44,7 @@ public class GameTest {
 
     @Test
     public void testOneStrike() {
-        game.roll(10);
+        rollStrike();
         game.roll(4);
         game.roll(3);
         rollMany(18,0);
@@ -53,9 +53,9 @@ public class GameTest {
 
     @Test
     public void testTurkey() {
-        game.roll(10);
-        game.roll(10);
-        game.roll(10);
+        rollStrike();
+        rollStrike();
+        rollStrike();
         game.roll(7);
         rollMany(16,0);
         assertEquals(81, game.score());
@@ -70,5 +70,9 @@ public class GameTest {
     private void rollSpare() {
         game.roll(5);
         game.roll(5);
+    }
+
+    private void rollStrike() {
+        game.roll(10);
     }
 }
