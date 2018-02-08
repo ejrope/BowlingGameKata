@@ -61,6 +61,15 @@ public class GameTest {
         assertEquals(81, game.score());
     }
 
+    @Test
+    public void testTurkeyFollowedByNull() {
+        rollStrike();
+        rollStrike();
+        rollStrike();
+        rollMany(17,0);
+        assertEquals(60, game.score());
+    }
+
     private void rollMany(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             game.roll(pins);
