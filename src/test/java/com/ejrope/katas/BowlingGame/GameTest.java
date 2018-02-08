@@ -25,6 +25,15 @@ public class GameTest {
         assertEquals(20, game.score());
     }
 
+    @Test
+    public void testOneSpare() {
+        game.roll(5);
+        game.roll(5);
+        game.roll(7);
+        rollMany(17,0);
+        assertEquals(24, game.score());
+    }
+
     private void rollMany(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             game.roll(pins);
