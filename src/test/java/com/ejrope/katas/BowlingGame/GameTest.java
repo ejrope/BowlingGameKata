@@ -27,8 +27,7 @@ public class GameTest {
 
     @Test
     public void testOneSpare() {
-        game.roll(5);
-        game.roll(5);
+        rollSpare();
         game.roll(7);
         rollMany(17,0);
         assertEquals(24, game.score());
@@ -37,8 +36,7 @@ public class GameTest {
     @Test
     public void testFalseSpare() {
         game.roll(0);
-        game.roll(5);
-        game.roll(5);
+        rollSpare();
         game.roll(7);
         rollMany(16,0);
         assertEquals(17, game.score());
@@ -48,5 +46,10 @@ public class GameTest {
         for (int i = 0; i < rolls; i++) {
             game.roll(pins);
         }
+    }
+
+    private void rollSpare() {
+        game.roll(5);
+        game.roll(5);
     }
 }
