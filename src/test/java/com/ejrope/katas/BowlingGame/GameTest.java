@@ -116,6 +116,14 @@ public class GameTest {
         assertEquals(44, game.score());
     }
 
+    @Test
+    public void testLasFrameNormalCase() {
+        rollMany(18,0);
+        game.roll(3);
+        game.roll(4);
+        assertEquals(7, game.score());
+    }
+
     private void rollMany(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             game.roll(pins);
