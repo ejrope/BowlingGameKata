@@ -149,6 +149,14 @@ public class GameTest {
         assertEquals(20, game.score());
     }
 
+    @Test
+    public void testLastFrameSpareFollowedByStrike() {
+        rollMany(18,0);
+        rollSpare();
+        rollStrike();
+        assertEquals(20, game.score());
+    }
+
     private void rollMany(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             game.roll(pins);
