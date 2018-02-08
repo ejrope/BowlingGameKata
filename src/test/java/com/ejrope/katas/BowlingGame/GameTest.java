@@ -34,6 +34,16 @@ public class GameTest {
         assertEquals(24, game.score());
     }
 
+    @Test
+    public void testFalseSpare() {
+        game.roll(0);
+        game.roll(5);
+        game.roll(5);
+        game.roll(7);
+        rollMany(16,0);
+        assertEquals(17, game.score());
+    }
+
     private void rollMany(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             game.roll(pins);
