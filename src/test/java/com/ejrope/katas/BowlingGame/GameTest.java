@@ -51,6 +51,16 @@ public class GameTest {
         assertEquals(24, game.score());
     }
 
+    @Test
+    public void testTurkey() {
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(7);
+        rollMany(16,0);
+        assertEquals(81, game.score());
+    }
+
     private void rollMany(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             game.roll(pins);
