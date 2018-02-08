@@ -6,11 +6,6 @@ import static org.junit.Assert.assertEquals;
 
 public class GameTest {
     @Test
-    public void testCanCreateGame() {
-        Game game = new Game();
-    }
-
-    @Test
     public void testGutterGame() {
         Game game = new Game();
 
