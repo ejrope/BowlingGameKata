@@ -14,13 +14,21 @@ public class Game {
         int rollIndex = 0;
 
         for (int frame = 0; frame < 10; frame++) {
-            if (rolls[rollIndex] + rolls[rollIndex + 1] == 10) {
-                score += rolls[rollIndex] + rolls[rollIndex + 1] + rolls[rollIndex + 2];
+            if (isSpare(rollIndex)) {
+                score += basicScore(rollIndex) + rolls[rollIndex + 2];
             } else {
-                score += rolls[rollIndex] + rolls[rollIndex + 1];
+                score += basicScore(rollIndex);
             }
             rollIndex += 2;
         }
         return score;
+    }
+
+    private int basicScore(int rollIndex) {
+        return rolls[rollIndex] + rolls[rollIndex + 1];
+    }
+
+    private boolean isSpare(int rollIndex) {
+        return rolls[rollIndex] + rolls[rollIndex + 1] == 10;
     }
 }
