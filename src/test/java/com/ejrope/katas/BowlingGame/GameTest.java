@@ -124,6 +124,14 @@ public class GameTest {
         assertEquals(7, game.score());
     }
 
+    @Test
+    public void testLastFrameSpare() {
+        rollMany(18,0);
+        rollSpare();
+        game.roll(7);
+        assertEquals(17, game.score());
+    }
+
     private void rollMany(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             game.roll(pins);
