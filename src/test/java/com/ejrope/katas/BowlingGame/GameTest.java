@@ -96,6 +96,16 @@ public class GameTest {
         assertEquals(47, game.score());
     }
 
+    @Test
+    public void testSpareFollowedBySpare() {
+        rollSpare();
+        rollSpare();
+        game.roll(3);
+        game.roll(4);
+        rollMany(14,0);
+        assertEquals(35, game.score());
+    }
+
     private void rollMany(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             game.roll(pins);
