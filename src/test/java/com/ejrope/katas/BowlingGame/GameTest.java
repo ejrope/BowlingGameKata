@@ -70,6 +70,12 @@ public class GameTest {
         assertEquals(60, game.score());
     }
 
+    @Test
+    public void testPerfectGame() {
+        rollMany(12,10);
+        assertEquals(300, game.score());
+    }
+
     private void rollMany(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             game.roll(pins);
