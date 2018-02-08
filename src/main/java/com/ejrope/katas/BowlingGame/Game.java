@@ -15,10 +15,10 @@ public class Game {
 
         for (int frame = 0; frame < 10; frame++) {
             if (isStrike(rollIndex)) {
-                score += basicScore(rollIndex) + rolls[rollIndex + 2];
+                score += strikeScore(rollIndex);
                 rollIndex++;
             } else if (isSpare(rollIndex)) {
-                score += basicScore(rollIndex) + rolls[rollIndex + 2];
+                score += spareScore(rollIndex);
                 rollIndex += 2;
             } else {
                 score += basicScore(rollIndex);
@@ -32,11 +32,19 @@ public class Game {
         return rolls[rollIndex] == 10;
     }
 
+    private boolean isSpare(int rollIndex) {
+        return rolls[rollIndex] + rolls[rollIndex + 1] == 10;
+    }
+
     private int basicScore(int rollIndex) {
         return rolls[rollIndex] + rolls[rollIndex + 1];
     }
 
-    private boolean isSpare(int rollIndex) {
-        return rolls[rollIndex] + rolls[rollIndex + 1] == 10;
+    private int strikeScore(int rollIndex) {
+        return basicScore(rollIndex) + rolls[rollIndex + 2];
+    }
+
+    private int spareScore(int rollIndex) {
+        return basicScore(rollIndex) + rolls[rollIndex + 2];
     }
 }
